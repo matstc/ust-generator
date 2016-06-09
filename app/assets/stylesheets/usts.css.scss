@@ -10,7 +10,7 @@ ul, li {list-style-type:none; margin:0; padding:0;}
 .ust-form label[for] {cursor:pointer;} 
 
 table.progression {width:100%; border-collapse:collapse;}
-table.progression td {font-weight:bold; font-size:150%; white-space:nowrap; padding: 15px 1px 15px 4px;}
+table.progression td {font-weight:bold; letter-spacing:-0.3px; font-size:150%; white-space:nowrap; padding: 15px 1px 15px 5px;}
 table.progression tr:nth-child(odd){background-color:#eee;}
 table.progression tr:nth-child(even){background-color:transparent;}
 
