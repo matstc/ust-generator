@@ -1,6 +1,6 @@
-* {font-family: Ubuntu, "Sans Serif"; box-sizing: border-box;}
+* {font-family: 'Ubuntu', "Sans Serif"; box-sizing: border-box;}
 body {margin:0; padding:0;}
-h1 {margin:0; background-color:#666; color:white; font-size:100%; padding:5px;}
+h1 {margin:0; background-color:#666; color:white; font-size:100%; padding:5px; font-weight:500;}
 ul, li {list-style-type:none; margin:0; padding:0;}
 
 .well {margin:10px;}
@@ -10,7 +10,7 @@ ul, li {list-style-type:none; margin:0; padding:0;}
 .ust-form label[for] {cursor:pointer;} 
 
 table.progression {width:100%; border-collapse:collapse;}
-table.progression td {font-weight:bold; letter-spacing:-0.6px; font-size:150%; white-space:nowrap; padding: 15px 1px 15px 5px;}
+table.progression td {font-weight:'Ubuntu Condensed'; letter-spacing:-0.6px; font-size:150%; white-space:nowrap; padding: 15px 1px 15px 5px;}
 table.progression tr:nth-child(odd){background-color:#eee;}
 table.progression tr:nth-child(even){background-color:transparent;}
 
