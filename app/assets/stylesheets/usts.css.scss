@@ -1,0 +1,25 @@
+* {font-family: Ubuntu, "Sans Serif";}
+h1 {margin:0; background-color:#666; color:white; font-size:100%; padding:5px;}
+ul, li {list-style-type:none; margin:0; padding:0;}
+
+.ust-form {background-color:#eee; padding: 15px;}
+.ust-form button, input[type='submit'] {margin-top:15px; padding:5px 10px;}
+.ust-form input[type='checkbox'] {margin-bottom:10px;}
+
+table.progression {width:100%; border-collapse:collapse;}
+table.progression td {font-size:150%; white-space:nowrap; padding: 15px 2px 15px 5px;}
+table.progression tr:nth-child(odd){background-color:#eee;}
+table.progression tr:nth-child(even){background-color:transparent;}
+
+footer {color:#888; font-size:90%; margin-top:45px;}
+
+.separator {margin: 25px 0; text-align:center;}
+.separator img {width:50px; transform: rotate(90deg); opacity:0.4;}
+
+@media all and (max-width: 699px) {
+  table.progression td {font-size:120%;}
+}
+
+@media all and (max-width: 450px) {
+  table.progression td {font-size:90%;}
+}
