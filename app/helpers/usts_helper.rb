@@ -1,6 +1,6 @@
 module USTsHelper
   def fix_letter_spacing obj
     string = obj.to_s
-    string.gsub("♭", "<span class='narrow'>♭</span>").gsub("♯", "<span class='narrow'>♯</span>").gsub(" ", "&thinsp;").gsub("△", "<span class='sharp'>△</span>").html_safe
+    string.gsub(" ", "&thinsp;").gsub("♭", "<span class='narrow'>♭</span>").gsub("♯", "<span class='narrow'>♯</span>").gsub("△", "<span class='sharp'>△</span>").html_safe
   end
 end
