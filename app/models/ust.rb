@@ -26,7 +26,7 @@ class UST
           Chord.new key, quality, alternative
         }
       }
-    }
+    }.shuffle
   end
 
 end
