@@ -7,7 +7,7 @@ class Chord
   end
 
   def to_s
-    string = "#{@root}#{@quality} #{@extensions}"
+    string = "#{@root}#{@quality}#{@extensions}"
     string += " :#{@comment}" if @comment
     string
   end
