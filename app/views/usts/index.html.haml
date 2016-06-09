@@ -1,24 +1,25 @@
-%h1 Upper Structure Triads Generator
+.well
+  %h1 Upper Structure Triads Generator
 
-= form_for :ust, url: usts_path, method: :get, html: {class: 'ust-form'} do |f|
-  %ul
-    %li
-      = f.check_box :dominant_enabled
-      %label{for: "ust_dominant_enabled"} Dominant 7th
-    %li
-      = f.check_box :major_enabled
-      %label{for: "ust_major_enabled"} Major 7th
-    %li
-      = f.check_box :minor_enabled
-      %label{for: "ust_minor_enabled"} Minor 7th
-    %li
-      = f.check_box :minor_flat_five_enabled
-      %label{for: "ust_minor_flat_five_enabled"} Minor 7th ♭5
-    %li
-      = f.check_box :diminished_enabled
-      %label{for: "ust_diminished_enabled"} Diminished
+  = form_for :ust, url: usts_path, method: :get, html: {class: 'ust-form'} do |f|
+    %ul
+      %li
+        = f.check_box :dominant_enabled
+        %label{for: "ust_dominant_enabled"} Dominant 7th
+      %li
+        = f.check_box :major_enabled
+        %label{for: "ust_major_enabled"} Major 7th
+      %li
+        = f.check_box :minor_enabled
+        %label{for: "ust_minor_enabled"} Minor 7th
+      %li
+        = f.check_box :minor_flat_five_enabled
+        %label{for: "ust_minor_flat_five_enabled"} Minor 7th ♭5
+      %li
+        = f.check_box :diminished_enabled
+        %label{for: "ust_diminished_enabled"} Diminished
 
-  = f.submit :Generate
+    = f.submit :Generate
 
 - if @progression.present?
   .separator
