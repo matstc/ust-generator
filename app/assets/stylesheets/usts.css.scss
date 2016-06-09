@@ -4,7 +4,8 @@ ul, li {list-style-type:none; margin:0; padding:0;}
 
 .ust-form {background-color:#eee; padding: 15px;}
 .ust-form button, input[type='submit'] {margin-top:15px; padding:5px 10px;}
-.ust-form input[type='checkbox'] {margin-bottom:10px;}
+.ust-form input[type='checkbox'] {margin-bottom:10px; cursor: pointer;}
+.ust-form label[for] {cursor:pointer;} 
 
 table.progression {width:100%; border-collapse:collapse;}
 table.progression td {font-size:150%; white-space:nowrap; padding: 15px 2px 15px 5px;}
