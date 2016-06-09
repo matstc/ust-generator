@@ -1,7 +1,7 @@
 class USTsController < ApplicationController
 
   def index
-    @ust = UST.new ust_params
+    @ust = UST.new(params[:ust].present?? ust_params : {})
     @progression = @ust.generate_progression
   end
 
