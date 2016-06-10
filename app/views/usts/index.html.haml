@@ -14,7 +14,7 @@
                 extension,
                 params["ust"].try(:[], "dominant_seventh_extensions").try {|extensions| extensions.include?(extension)},
                 id: "dominant_seventh_extensions-#{index}"
-              %label{for: "dominant_seventh_extensions-#{index}"}= extension
+              %label{for: "dominant_seventh_extensions-#{index}"}= fix_letter_spacing(extension)
 
       %li
         .chord-quality
@@ -27,7 +27,7 @@
                 extension,
                 params["ust"].try(:[], "major_seventh_extensions").try {|extensions| extensions.include?(extension)},
                 id: "major_seventh_extensions-#{index}"
-              %label{for: "major_seventh_extensions-#{index}"}= extension
+              %label{for: "major_seventh_extensions-#{index}"}= fix_letter_spacing(extension)
       %li
         .chord-quality
           = check_box_tag :minor_enabled, "1", params[:ust].try(:[], :minor_seventh_extensions).try {|extensions| extensions.any?}, id: 'minor_seventh_ext', onclick: 'toggleBoxes(this)'
@@ -39,7 +39,7 @@
                 extension,
                 params["ust"].try(:[], "minor_seventh_extensions").try {|extensions| extensions.include?(extension)},
                 id: "minor_seventh_extensions-#{index}"
-              %label{for: "minor_seventh_extensions-#{index}"}= extension
+              %label{for: "minor_seventh_extensions-#{index}"}= fix_letter_spacing(extension)
       %li
         .chord-quality
           = check_box_tag :minor_seventh_flat_five_enabled, "1", params[:ust].try(:[], :minor_seventh_flat_five_extensions).try {|extensions| extensions.any?}, id: 'minor_seventh_flat_five', onclick: 'toggleBoxes(this)'
@@ -51,7 +51,7 @@
                 extension,
                 params["ust"].try(:[], "minor_seventh_flat_five_extensions").try {|extensions| extensions.include?(extension)},
                 id: "minor_seventh_flat_five_extensions-#{index}"
-              %label{for: "minor_seventh_flat_five_extensions-#{index}"}= extension
+              %label{for: "minor_seventh_flat_five_extensions-#{index}"}= fix_letter_spacing(extension)
       %li
         .chord-quality
           = check_box_tag :diminished_enabled, "1", params[:ust].try(:[], :diminished_seventh_extensions).try {|extensions| extensions.any?}, id: 'diminished_seventh', onclick: 'toggleBoxes(this)'
@@ -63,7 +63,7 @@
                 extension,
                 params["ust"].try(:[], "diminished_seventh_extensions").try {|extensions| extensions.include?(extension)},
                 id: "diminished_seventh_extensions-#{index}"
-              %label{for: "diminished_seventh_extensions-#{index}"}= extension
+              %label{for: "diminished_seventh_extensions-#{index}"}= fix_letter_spacing(extension)
 
     .actions
       = f.submit :Generate, class: 'button primary'
