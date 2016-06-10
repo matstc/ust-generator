@@ -7,6 +7,10 @@ class USTsController < ApplicationController
 
   private
     def ust_params
-      params.require(:ust).permit(:dominant_enabled, :major_enabled, :minor_enabled, :minor_flat_five_enabled, :diminished_enabled)
+      params.require(:ust).permit(dominant_seventh_extensions: [],
+                                  major_seventh_extensions: [],
+                                  minor_seventh_extensions: [],
+                                  minor_seventh_flat_five_extensions: [],
+                                  diminished_seventh_extensions: [])
     end
 end

@@ -6,8 +6,13 @@ ul, li {list-style-type:none; margin:0; padding:0;}
 .well {margin:10px;}
 .ust-form {background-color:#eee; padding: 15px;}
 .ust-form button, input[type='submit'] {margin-top:15px; padding:5px 10px;}
-.ust-form input[type='checkbox'] {margin-bottom:10px; cursor: pointer;}
-.ust-form label[for] {cursor:pointer;} 
+.ust-form input[type='checkbox'], .ust-form button, .ust-form input[type='submit'] {cursor: pointer;}
+.ust-form label[for] {cursor:pointer; padding-left:4px;} 
+.ust-form input[type='checkbox'] {margin-right:0;}
+.ust-form .extensions {display:inline; margin-bottom:15px;}
+.ust-form .extension {display:inline-block; min-width:65px;}
+.ust-form .chord-quality {cursor:pointer; display: inline-block; min-width:160px; padding: 5px 10px; border: 1px solid #ccc; background-color: white; border-radius: 3px; margin-bottom:2px;}
+.ust-form ul > li {line-height:1.5em; margin-bottom:8px;}
 
 span.narrow {margin-left:-3px; margin-right:-2px;}
 span.maj7 {font-size:90%;}
@@ -17,14 +22,17 @@ table.progression td {font-weight:500; font-family:'Ubuntu'; letter-spacing:-0.5
 table.progression tr:nth-child(odd){background-color:#eee;}
 table.progression tr:nth-child(even){background-color:transparent;}
 
+.result-count {font-size:90%; color:#888; margin-bottom:0;}
 footer {color:#888; font-size:85%; margin-top:45px; padding:10px;}
 footer a:link, footer a:visited {color:#444;}
 
 .separator {margin: 25px 0; text-align:center;}
 .separator img {width:50px; transform: rotate(90deg); opacity:0.4;}
 
-@media all and (max-width: 699px) {
+@media all and (max-width: 710px) {
   table.progression td {font-size:120%;}
+  .ust-form .extensions {display:block;}
+  .chord-quality {width:100%;}
 }
 
 @media all and (max-width: 450px) {
