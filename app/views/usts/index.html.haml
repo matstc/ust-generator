@@ -66,8 +66,9 @@
               %label{for: "diminished_seventh_extensions-#{index}"}= fix_letter_spacing(extension)
 
     .actions
-      = f.submit :Generate, class: 'button primary'
+      = f.submit 'Generate!', class: 'button primary'
       = f.button :Clear, class: 'button', onclick: "clearForm(event)"
+      = f.button 'Fullscreen', onclick: 'toggleFullScreen(); return false;'
     %p.result-count
       = "#{@progression.size} chords were generated."
 
