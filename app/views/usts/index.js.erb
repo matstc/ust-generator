@@ -2,3 +2,22 @@ var site = $("#progression");
 site.hide();
 site.html("<%= j render('progression', progression:@progression)%>")
 site.fadeIn();
+
+MIDI.loadPlugin({
+  soundfontUrl: "/assets/",
+  instrument: "acoustic_grand_piano",
+  onprogress: function(state, progress) {
+    console.log(state, progress);
+  },
+  onsuccess: function() {
+    stopAudio();
+    MIDI.setVolume(0, 100);
+
+    var progression = [ <%= raw @progression.map{|chord| "'#{chord.root.sub('♭','b')}2'"}.join(",") %> ]
+    for (var i = 0; i < progression.length; i++){
+      var delay = i*2 + 4;
+      MIDI.notes.push(MIDI.noteOn(0, MIDI.keyToNote[progression[i]], 120, delay));
+      MIDI.noteOff(0, MIDI.keyToNote[progression[i]], delay + 0.70);
+    }
+  }
+});

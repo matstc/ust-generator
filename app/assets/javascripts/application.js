@@ -13,4 +13,12 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require Base64
+//= require Base64binary
+//= require WebAudioAPI
+//= require audioDetect
+//= gm
+//= loader
+//= plugin.webmidi
+//= plugin.webaudio
 //= require_tree .

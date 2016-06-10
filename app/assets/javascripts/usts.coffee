@@ -8,6 +8,13 @@ window.toggleBoxes = (parent) =>
   [].map.call document.querySelectorAll("input[id^='" + parent.id + "']"), (checkbox) ->
     checkbox.checked = parent.checked
 
+window.stopAudio = (e) =>
+  e.preventDefault() if e?
+
+  MIDI.notes.map((note) -> note.stop()) if MIDI.notes
+  MIDI.stopAllNotes()
+  MIDI.notes = []
+
 window.toggleInnerCheckbox = (e) =>
   checkbox = e.currentTarget.querySelector("input[type='checkbox']")
   return if checkbox == e.target

@@ -1,4 +1,6 @@
 class Chord
+  attr_reader :root
+
   def initialize root, quality, extensions, comment=nil
     @root = root
     @quality = quality
