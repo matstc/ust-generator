@@ -18,6 +18,7 @@ table.progression {width:100%; border-collapse:collapse;}
 table.progression td {font-weight:500; font-family:'Ubuntu'; letter-spacing:-0.5px; font-size:150%; white-space:nowrap; padding: 15px 1px 15px 5px;}
 table.progression tr:nth-child(odd){background-color:#eee;}
 table.progression tr:nth-child(even){background-color:transparent;}
+table.progression td.current {background-color:#ccc;}
 
 .pull-right {float:right;}
 

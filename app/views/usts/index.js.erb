@@ -1,6 +1,6 @@
 var site = $("#progression");
 site.hide();
-site.html("<%= j render('progression', progression:@progression)%>")
+site.html("<%= j render('progression', progression:@progression)%>");
 site.fadeIn();
 
 MIDI.loadPlugin({
@@ -13,11 +13,17 @@ MIDI.loadPlugin({
     stopAudio();
     MIDI.setVolume(0, 100);
 
-    var progression = [ <%= raw @progression.map{|chord| "'#{chord.root.sub('♭','b')}2'"}.join(",") %> ]
-    for (var i = 0; i < progression.length; i++){
-      var delay = i*3 + 4;
-      MIDI.notes.push(MIDI.noteOn(0, MIDI.keyToNote[progression[i]], 120, delay));
-      MIDI.noteOff(0, MIDI.keyToNote[progression[i]], delay + 0.70);
+    var progression = [ <%= raw @progression.map{|chord| "'#{chord.root.sub('♭','b')}2'"}.join(",") %> ];
+    var index = 0;
+    function play(){
+      MIDI.noteOn(0, MIDI.keyToNote[progression[index]], 120, 0);
+      MIDI.noteOff(0, MIDI.keyToNote[progression[index]], 0.70);
+      var tds = $("table.progression td").removeClass('current');
+      if (index >= progression.length) {return stopAudio();}
+
+      var td = $(tds[index]).addClass('current');
+      index++;
     }
+    window.intervalId = setInterval(play, 2000);
   }
 });

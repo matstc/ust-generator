@@ -10,10 +10,8 @@ window.toggleBoxes = (parent) =>
 
 window.stopAudio = (e) =>
   e.preventDefault() if e?
-
-  MIDI.notes.map((note) -> note.stop()) if MIDI.notes
-  MIDI.stopAllNotes()
-  MIDI.notes = []
+  clearInterval(intervalId) if window.intervalId?
+  MIDI.stopAllNotes() if MIDI.stopAllNotes?
 
 window.toggleInnerCheckbox = (e) =>
   checkbox = e.currentTarget.querySelector("input[type='checkbox']")
