@@ -6,7 +6,7 @@
       %li
         .chord-quality{onclick: 'toggleInnerCheckbox(event)'}
           = check_box_tag :dominant_enabled, "1", params[:ust].try(:[], :dominant_seventh_extensions).try {|extensions| extensions.any?}, id: 'dominant_seventh', onclick: 'toggleBoxes(this)'
-          %label{for: "dominant_seventh"} Dominant 7th
+          %label Dominant 7th
         .extensions
           - UST::DOMINANT_SEVENTH_EXTENSIONS.each_with_index do |extension, index|
             .extension

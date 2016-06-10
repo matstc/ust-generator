@@ -9,7 +9,7 @@ window.toggleBoxes = (parent) =>
     checkbox.checked = parent.checked
 
 window.toggleInnerCheckbox = (e) =>
-  e.preventDefault()
   checkbox = e.currentTarget.querySelector("input[type='checkbox']")
+  return if checkbox == e.target
   checkbox.checked = !!!checkbox.checked
   toggleBoxes(checkbox)

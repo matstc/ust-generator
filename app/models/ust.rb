@@ -32,7 +32,7 @@ class UST
           Chord.new key, quality, alternative
         }
       }
-    }.compact
+    }.compact.shuffle
   end
 
 end
