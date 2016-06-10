@@ -15,7 +15,7 @@ MIDI.loadPlugin({
 
     var progression = [ <%= raw @progression.map{|chord| "'#{chord.root.sub('♭','b')}2'"}.join(",") %> ]
     for (var i = 0; i < progression.length; i++){
-      var delay = i*2 + 4;
+      var delay = i*3 + 4;
       MIDI.notes.push(MIDI.noteOn(0, MIDI.keyToNote[progression[i]], 120, delay));
       MIDI.noteOff(0, MIDI.keyToNote[progression[i]], delay + 0.70);
     }
