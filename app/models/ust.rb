@@ -9,7 +9,7 @@ class UST
   MAJOR_SEVENTH_EXTENSIONS = ["♯11", "9"]
   MINOR_SEVENTH_EXTENSIONS = ["13", "♭13", "11"]
   MINOR_SEVENTH_FLAT_FIVE_EXTENSIONS = ["♭13", "11"]
-  DIMINISHED_SEVENTH_EXTENSIONS = ["♯11", "13", "#9♭13", "#9♯11"]
+  DIMINISHED_SEVENTH_EXTENSIONS = ["♯11", "13", "♯9♭13", "♯9♯11"]
 
   def initialize params
     params.keys.each {|key| instance_variable_set(:"@#{key}", params[key])}
