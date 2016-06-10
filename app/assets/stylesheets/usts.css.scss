@@ -19,9 +19,10 @@ table.progression td {font-weight:500; font-family:'Ubuntu'; letter-spacing:-0.5
 table.progression tr:nth-child(odd){background-color:#eee;}
 table.progression tr:nth-child(even){background-color:transparent;}
 
-.result-count {font-size:90%; color:#888; margin-bottom:0;}
+.result-count {font-size:90%; color:#888; margin:0; padding:5px;}
 footer {color:#888; font-size:85%; margin-top:45px; padding:10px;}
 footer a:link, footer a:visited {color:#444;}
+footer hr {border-style:1px solid #f5f5f5;}
 
 .separator {margin: 25px 0; text-align:center;}
 .separator img {width:50px; transform: rotate(90deg); opacity:0.4;}

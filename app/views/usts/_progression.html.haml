@@ -1,0 +1,13 @@
+.separator
+  = image_tag 'treble.jpg'
+
+%p.result-count
+  %span.value= progression.size
+  chords were generated.
+
+%table.progression
+  - progression.in_groups_of(4).each do |four_usts|
+    %tr
+      - four_usts.each do |ust|
+        %td= fix_letter_spacing(ust)
+

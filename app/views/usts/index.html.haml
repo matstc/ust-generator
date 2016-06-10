@@ -1,7 +1,7 @@
 .well
   %h1 Upper Structure Triads Generator
 
-  = form_for :ust, url: usts_path, method: :get, html: {class: 'ust-form'} do |f|
+  = form_for :ust, url: usts_path, method: :get, remote: true, html: {class: 'ust-form'} do |f|
     %ul
       %li
         .chord-quality{onclick: 'toggleInnerCheckbox(event)'}
@@ -17,9 +17,9 @@
               %label{for: "dominant_seventh_extensions-#{index}"}= fix_letter_spacing(extension)
 
       %li
-        .chord-quality
+        .chord-quality{onclick: 'toggleInnerCheckbox(event)'}
           = check_box_tag :major_enabled, "1", params[:ust].try(:[], :major_seventh_extensions).try {|extensions| extensions.any?}, id: 'major_seventh', onclick: 'toggleBoxes(this)'
-          %label{for: "major_seventh"} Major 7th
+          %label Major 7th
         .extensions
           - UST::MAJOR_SEVENTH_EXTENSIONS.each_with_index do |extension, index|
             .extension
@@ -29,9 +29,9 @@
                 id: "major_seventh_extensions-#{index}"
               %label{for: "major_seventh_extensions-#{index}"}= fix_letter_spacing(extension)
       %li
-        .chord-quality
+        .chord-quality{onclick: 'toggleInnerCheckbox(event)'}
           = check_box_tag :minor_enabled, "1", params[:ust].try(:[], :minor_seventh_extensions).try {|extensions| extensions.any?}, id: 'minor_seventh_ext', onclick: 'toggleBoxes(this)'
-          %label{for: "minor_seventh_ext"} Minor 7th
+          %label Minor 7th
         .extensions
           - UST::MINOR_SEVENTH_EXTENSIONS.each_with_index do |extension, index|
             .extension
@@ -41,9 +41,9 @@
                 id: "minor_seventh_extensions-#{index}"
               %label{for: "minor_seventh_extensions-#{index}"}= fix_letter_spacing(extension)
       %li
-        .chord-quality
+        .chord-quality{onclick: 'toggleInnerCheckbox(event)'}
           = check_box_tag :minor_seventh_flat_five_enabled, "1", params[:ust].try(:[], :minor_seventh_flat_five_extensions).try {|extensions| extensions.any?}, id: 'minor_seventh_flat_five', onclick: 'toggleBoxes(this)'
-          %label{for: "minor_seventh_flat_five"} Minor 7th ♭5
+          %label Minor 7th ♭5
         .extensions
           - UST::MINOR_SEVENTH_FLAT_FIVE_EXTENSIONS.each_with_index do |extension, index|
             .extension
@@ -53,9 +53,9 @@
                 id: "minor_seventh_flat_five_extensions-#{index}"
               %label{for: "minor_seventh_flat_five_extensions-#{index}"}= fix_letter_spacing(extension)
       %li
-        .chord-quality
+        .chord-quality{onclick: 'toggleInnerCheckbox(event)'}
           = check_box_tag :diminished_enabled, "1", params[:ust].try(:[], :diminished_seventh_extensions).try {|extensions| extensions.any?}, id: 'diminished_seventh', onclick: 'toggleBoxes(this)'
-          %label{for: "diminished_seventh"} Diminished 7th
+          %label Diminished 7th
         .extensions
           - UST::DIMINISHED_SEVENTH_EXTENSIONS.each_with_index do |extension, index|
             .extension
@@ -69,20 +69,12 @@
       = f.submit 'Generate!', class: 'button primary'
       = f.button :Clear, class: 'button', onclick: "clearForm(event)"
       = f.button 'Fullscreen', onclick: 'toggleFullScreen(); return false;'
-    %p.result-count
-      = "#{@progression.size} chords were generated."
 
-- if @progression.present?
-  .separator
-    = image_tag 'treble.jpg'
-
-  %table.progression
-    - @progression.in_groups_of(4).each do |four_usts|
-      %tr
-        - four_usts.each do |ust|
-          %td= fix_letter_spacing(ust)
+#progression
+  = render 'progression', progression: @progression
 
 %footer
+  %hr
   %p
     Like this app?
     = link_to "Here's the code.", 'https://github.com/matstc/ust-generator'
