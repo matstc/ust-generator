@@ -3,6 +3,9 @@ source 'https://rubygems.org'
 
 gem 'haml-rails'
 gem 'pry-rails'
+gem "twitter-bootstrap-rails", github: "seyhunak/twitter-bootstrap-rails"
+gem "font-awesome-rails"
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
 # Use SCSS for stylesheets

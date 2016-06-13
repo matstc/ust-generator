@@ -10,20 +10,10 @@ MIDI.loadPlugin({
     console.log(state, progress);
   },
   onsuccess: function() {
-    stopAudio();
     MIDI.setVolume(0, 100);
-
+    PLAYER.reset();
     var progression = [ <%= raw @progression.map{|chord| "'#{chord.root.sub('♭','b')}2'"}.join(",") %> ];
-    var index = 0;
-    function play(){
-      MIDI.noteOn(0, MIDI.keyToNote[progression[index]], 120, 0);
-      MIDI.noteOff(0, MIDI.keyToNote[progression[index]], 0.70);
-      var tds = $("table.progression td").removeClass('current');
-      if (index >= progression.length) {return stopAudio();}
-
-      var td = $(tds[index]).addClass('current');
-      index++;
-    }
-    window.intervalId = setInterval(play, 3500);
+    $('.result-count').text(progression.length + ' chords were generated')
+    PLAYER.use(progression);
   }
 });
