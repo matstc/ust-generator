@@ -71,6 +71,7 @@ class Player
 
   reset: ->
     @stop()
+    @index = 0
     $('.bpm').text(@bpm)
 
   toggleAudio:  (e) ->
