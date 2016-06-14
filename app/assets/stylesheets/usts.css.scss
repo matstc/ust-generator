@@ -31,10 +31,13 @@ footer hr {border-style:1px solid #f5f5f5;}
   table.progression td {font-size:130%;}
   .ust-form .extensions {display:block;}
   .chord-quality {width:100%;}
-  span.narrow {margin-left:-3px; margin-right:-2px;}
+  span.narrow {margin-left:-4px; margin-right:-3px;}
   span.maj7 {font-size:90%;}
 }
 
+@media all and (max-width: 450px) {
+  table.progression td {font-size:120%;}
+}
 @media all and (min-width: 710px) {
   span.maj7 {font-size:90%; position:relative; top:-2px;}
 }
