@@ -10,10 +10,10 @@ MIDI.loadPlugin({
     console.log(state, progress);
   },
   onsuccess: function() {
-    MIDI.setVolume(0, 100);
-    PLAYER.reset();
     var progression = [ <%= raw @progression.map{|chord| "'#{chord.root.sub('♭','b')}2'"}.join(",") %> ];
     $('.result-count').text(progression.length + ' chords were generated')
+    MIDI.setVolume(0, 100);
+    PLAYER.reset();
     PLAYER.use(progression);
   }
 });

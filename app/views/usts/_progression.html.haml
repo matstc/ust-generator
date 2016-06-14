@@ -20,5 +20,5 @@
   - progression.in_groups_of(4).each do |four_usts|
     %tr
       - four_usts.each do |ust|
-        %td= fix_letter_spacing(ust)
+        %td{onclick: "PLAYER.goTo(#{progression.index(ust)});"}= fix_letter_spacing(ust)
 

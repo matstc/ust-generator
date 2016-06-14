@@ -49,10 +49,9 @@ class Player
   loop: =>
     return @stop() if (@index >= @progression.length)
 
+    @highlight(@index)
     MIDI.noteOn(0, MIDI.keyToNote[@progression[@index]], 120, 0)
     MIDI.noteOff(0, MIDI.keyToNote[@progression[@index]], 0.70)
-    tds = $("table.progression td").removeClass('current')
-    td = $(tds[@index]).addClass('current')
     @index += 1
 
   play: ->
@@ -73,6 +72,14 @@ class Player
     @stop()
     @index = 0
     $('.bpm').text(@bpm)
+
+  highlight: (index) ->
+    tds = $("table.progression td").removeClass('current')
+    td = $(tds[index]).addClass('current')
+
+  goTo: (index) ->
+    @highlight(index)
+    @index = index
 
   toggleAudio:  (e) ->
     if @intervalId?
