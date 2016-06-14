@@ -2,18 +2,18 @@
   = image_tag 'treble.jpg'
 
 .action-bar.clearfix
-  = button_tag '', onclick: 'PLAYER.toggleAudio(event);', class: 'btn btn-default', style: 'display:none;' do
+  = button_tag '', onclick: 'PLAYER.toggleAudio(event);', class: 'btn btn-lg btn-default', style: 'display:none;' do
     %span.glyphicon.glyphicon-play
-  = button_tag '', onclick: 'PLAYER.toggleAudio(event);', class: 'btn btn-default', style: 'display:none;' do
+  = button_tag '', onclick: 'PLAYER.toggleAudio(event);', class: 'btn btn-lg btn-default', style: 'display:none;' do
     %span.glyphicon.glyphicon-pause
-  = button_tag '', onclick: 'PLAYER.speedDown(event);', class: 'btn btn-default' do
+  = button_tag '', onclick: 'PLAYER.speedDown(event);', class: 'btn btn-lg btn-default' do
     %span.glyphicon.glyphicon-minus
   %span
     %span.bpm 60
     BPM
-  = button_tag '', onclick: 'PLAYER.speedUp(event);', class: 'btn btn-default' do
+  = button_tag '', onclick: 'PLAYER.speedUp(event);', class: 'btn btn-lg btn-default' do
     %span.glyphicon.glyphicon-plus
-  = button_tag 'Fullscreen', onclick: 'toggleFullScreen(); return false;', class: 'btn btn-default' do
+  = button_tag 'Fullscreen', onclick: 'toggleFullScreen(); return false;', class: 'btn btn-lg btn-default' do
     %span.glyphicon.glyphicon-fullscreen
 
 %table.progression

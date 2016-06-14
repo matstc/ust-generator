@@ -1,6 +1,6 @@
 
 = form_for :ust, url: usts_path, method: :get, remote: true, html: {role: 'form', class: 'ust-form'} do |f|
-  %h1 Upper Structure Triads Generator
+  %h1 Upper Structure Triads
   %ul
     %li
       .chord-quality{onclick: 'toggleInnerCheckbox(event)'}
@@ -75,8 +75,8 @@
               %label{for: "diminished_seventh_extensions-#{index}"}= fix_letter_spacing(extension)
 
   .actions
-    = f.submit 'Generate', class: 'btn btn-default button btn-primary'
-    = f.button :Clear, class: 'button btn btn-default', onclick: "clearForm(event)"
+    = f.submit 'Generate', class: 'btn btn-lg btn-default button btn-primary'
+    = f.button :Clear, class: 'button btn btn-lg btn-default', onclick: "clearForm(event)"
     %span.result-count
 
 #progression
