@@ -78,6 +78,7 @@ class Player
     td = $(tds[index]).addClass('current')
 
   goTo: (index) ->
+    @stop()
     @highlight(index)
     @index = index
 
