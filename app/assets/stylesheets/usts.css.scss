@@ -26,15 +26,17 @@ footer hr {border-style:1px solid #f5f5f5;}
 
 .intro {color:#555; padding:15px; font-size:120%;}
 
-@media all and (max-width: 450px) {
+@media all and (max-width: 710px) {
   table.progression td {font-size:130%;}
   .ust-form .extensions {display:block;}
   .chord-quality {width:100%;}
   span.narrow {margin-left:-4px; margin-right:-3px;}
   span.maj7 {font-size:90%;}
-  table.progression td {font-size:120%;}
 }
 
-@media all and (min-width: 450px) {
+@media all and (max-width: 450px) {
+  table.progression td {font-size:120%;}
+}
+@media all and (min-width: 710px) {
   span.maj7 {font-size:90%; position:relative; top:-2px;}
 }
