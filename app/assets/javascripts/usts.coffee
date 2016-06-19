@@ -1,8 +1,6 @@
 window.clearForm = (e) =>
   e.preventDefault()
-
-  [].map.call document.querySelectorAll("input[type='checkbox']"), (checkbox) ->
-    checkbox.checked = false
+  $("input[type='checkbox']").each(_, checkbox) -> checkbox.checked = false
 
 window.generate = -> $('form').submit()
 
@@ -13,9 +11,7 @@ $(window).scroll ->
     $('.action-bar').css('opacity', '1')
 
 window.toggleBoxes = (parent) =>
-  console.log('toggling')
   $("input[id^='" + parent.id + "']").each (_, checkbox) ->
-    console.log('toggling ' + checkbox.id)
     checkbox.checked = parent.checked
     true
 
@@ -42,7 +38,7 @@ class Player
     @progression = []
     @index = 0
     @intervalId = null
-    @bpm = 60
+    @bpm = 80
 
   calculateDelay: ->
     60/(@bpm/4)*1000
@@ -55,6 +51,7 @@ class Player
     return @stop() if (@index >= @progression.length)
 
     @highlight(@index)
+    @scrollTo(@index)
     MIDI.noteOn(0, MIDI.keyToNote[@progression[@index]], 120, 0)
     MIDI.noteOff(0, MIDI.keyToNote[@progression[@index]], 0.70)
     @index += 1
@@ -82,9 +79,18 @@ class Player
     tds = $("table.progression td").removeClass('current')
     td = $(tds[index]).addClass('current')
 
+  scrollTo: (index) ->
+    td = $($("table.progression td")[index])
+    height = $(window).height()
+    offset = td.offset().top
+    if offset + 150 > height + $(window).scrollTop()
+      destination = offset - 100
+      $('html, body').animate({ scrollTop: destination}, 2000)
+
   goTo: (index) ->
     @stop()
     @highlight(index)
+    @scrollTo(index)
     @index = index
 
   toggleAudio:  (e) ->
