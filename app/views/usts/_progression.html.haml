@@ -17,12 +17,16 @@
       = button_tag '', onclick: 'PLAYER.speedUp(event);', class: 'btn btn-default' do
         %span.glyphicon.glyphicon-plus
   .btn-subgroup
-    = button_tag '', onclick: 'generate(); return false;', class: 'btn btn-default' do
-      %span.glyphicon.glyphicon-refresh
-    = button_tag 'Fullscreen', onclick: 'toggleFullScreen(); return false;', class: 'btn btn-default' do
-      %span.glyphicon.glyphicon-fullscreen
+    .btn-group
+      = button_tag '', onclick: 'generate(); return false;', class: 'btn btn-default' do
+        %span.glyphicon.glyphicon-refresh
+      = button_tag 'Fullscreen', onclick: 'toggleFullScreen(); return false;', class: 'btn btn-default' do
+        %span.glyphicon.glyphicon-fullscreen
 
 %table.progression
+  - if progression.empty?
+    .intro
+      %p Choose upper structure triads from the top-left menu to get started.
   - progression.in_groups_of(4).each do |four_usts|
     %tr
       - four_usts.each do |ust|
