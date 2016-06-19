@@ -1,7 +1,7 @@
 var site = $("#progression");
 site.hide();
 site.html("<%= j render('progression', progression:@progression)%>");
-site.fadeIn();
+site.show();
 
 MIDI.loadPlugin({
   soundfontUrl: "/assets/",

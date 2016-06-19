@@ -6,6 +6,12 @@ window.clearForm = (e) =>
 
 window.generate = -> $('form').submit()
 
+$(window).scroll ->
+  if $(window).scrollTop() > 0
+    $('.action-bar').css('opacity', '0.8')
+  else
+    $('.action-bar').css('opacity', '1')
+
 window.toggleBoxes = (parent) =>
   console.log('toggling')
   $("input[id^='" + parent.id + "']").each (_, checkbox) ->
