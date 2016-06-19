@@ -4,6 +4,8 @@ window.clearForm = (e) =>
   [].map.call document.querySelectorAll("input[type='checkbox']"), (checkbox) ->
     checkbox.checked = false
 
+window.generate = -> $('form').submit()
+
 window.toggleBoxes = (parent) =>
   console.log('toggling')
   $("input[id^='" + parent.id + "']").each (_, checkbox) ->
@@ -17,21 +19,18 @@ window.toggleInnerCheckbox = (e) =>
   checkbox.checked = !!!checkbox.checked
   toggleBoxes(checkbox)
  
-`window.toggleFullScreen = function() {
-  var doc = window.document;
-  var docEl = doc.documentElement;
+window.toggleFullScreen = ->
+  doc = window.document
+  docEl = doc.documentElement
 
-  var requestFullScreen = docEl.requestFullscreen || docEl.mozRequestFullScreen || docEl.webkitRequestFullScreen || docEl.msRequestFullscreen;
-  var cancelFullScreen = doc.exitFullscreen || doc.mozCancelFullScreen || doc.webkitExitFullscreen || doc.msExitFullscreen;
+  requestFullScreen = docEl.requestFullscreen || docEl.mozRequestFullScreen || docEl.webkitRequestFullScreen || docEl.msRequestFullscreen
+  cancelFullScreen = doc.exitFullscreen || doc.mozCancelFullScreen || doc.webkitExitFullscreen || doc.msExitFullscreen
 
-  if(!doc.fullscreenElement && !doc.mozFullScreenElement && !doc.webkitFullscreenElement && !doc.msFullscreenElement) {
-    requestFullScreen.call(docEl);
-  }
-  else {
-    cancelFullScreen.call(doc);
-  }
-}
-`
+  if !doc.fullscreenElement && !doc.mozFullScreenElement && !doc.webkitFullscreenElement && !doc.msFullscreenElement
+    requestFullScreen.call(docEl)
+  else
+    cancelFullScreen.call(doc)
+
 class Player
   constructor: ->
     @progression = []

@@ -1,20 +1,26 @@
-.separator
-  = image_tag 'treble.jpg'
-
 .action-bar.clearfix
-  = button_tag '', onclick: 'PLAYER.toggleAudio(event);', class: 'btn btn-lg btn-default', style: 'display:none;' do
-    %span.glyphicon.glyphicon-play
-  = button_tag '', onclick: 'PLAYER.toggleAudio(event);', class: 'btn btn-lg btn-default', style: 'display:none;' do
-    %span.glyphicon.glyphicon-pause
-  = button_tag '', onclick: 'PLAYER.speedDown(event);', class: 'btn btn-lg btn-default' do
-    %span.glyphicon.glyphicon-minus
-  %span
-    %span.bpm 60
-    BPM
-  = button_tag '', onclick: 'PLAYER.speedUp(event);', class: 'btn btn-lg btn-default' do
-    %span.glyphicon.glyphicon-plus
-  = button_tag 'Fullscreen', onclick: 'toggleFullScreen(); return false;', class: 'btn btn-lg btn-default' do
-    %span.glyphicon.glyphicon-fullscreen
+  %button.btn.btn-default(data-toggle='collapse' data-target='.sidebar')
+    %span.glyphicon.glyphicon-th-list
+
+  .btn-subgroup
+    = button_tag '', onclick: 'PLAYER.toggleAudio(event);', class: 'btn btn-default', style: 'display:none;' do
+      %span.glyphicon.glyphicon-play
+    = button_tag '', onclick: 'PLAYER.toggleAudio(event);', class: 'btn btn-default', style: 'display:none;' do
+      %span.glyphicon.glyphicon-pause
+  .btn-subgroup
+    %span
+      %span.bpm 60
+      BPM
+    .btn-group
+      = button_tag '', onclick: 'PLAYER.speedDown(event);', class: 'btn btn-default' do
+        %span.glyphicon.glyphicon-minus
+      = button_tag '', onclick: 'PLAYER.speedUp(event);', class: 'btn btn-default' do
+        %span.glyphicon.glyphicon-plus
+  .btn-subgroup
+    = button_tag '', onclick: 'generate(); return false;', class: 'btn btn-default' do
+      %span.glyphicon.glyphicon-refresh
+    = button_tag 'Fullscreen', onclick: 'toggleFullScreen(); return false;', class: 'btn btn-default' do
+      %span.glyphicon.glyphicon-fullscreen
 
 %table.progression
   - progression.in_groups_of(4).each do |four_usts|

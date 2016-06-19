@@ -1,83 +1,82 @@
+.sidebar.collapse
+  = form_for :ust, url: usts_path, method: :get, remote: true, html: {role: 'form', class: 'ust-form'} do |f|
+    %ul
+      %li
+        .chord-quality{onclick: 'toggleInnerCheckbox(event)'}
+          .checkbox
+            = check_box_tag :dominant_enabled, "1", params[:ust].try(:[], :dominant_seventh_extensions).try {|extensions| extensions.any?}, id: 'dominant_seventh', onclick: 'toggleBoxes(this)'
+            %label Dominant 7th
+        .extensions
+          - UST::DOMINANT_SEVENTH_EXTENSIONS.each_with_index do |extension, index|
+            .extension
+              .checkbox.checkbox-success
+                = check_box_tag "ust[dominant_seventh_extensions][]",
+                  extension,
+                  params["ust"].try(:[], "dominant_seventh_extensions").try {|extensions| extensions.include?(extension)},
+                  id: "dominant_seventh_extensions-#{index}"
+                %label{for: "dominant_seventh_extensions-#{index}"}= fix_letter_spacing(extension)
 
-= form_for :ust, url: usts_path, method: :get, remote: true, html: {role: 'form', class: 'ust-form'} do |f|
-  %h1 Upper Structure Triads
-  %ul
-    %li
-      .chord-quality{onclick: 'toggleInnerCheckbox(event)'}
-        .checkbox
-          = check_box_tag :dominant_enabled, "1", params[:ust].try(:[], :dominant_seventh_extensions).try {|extensions| extensions.any?}, id: 'dominant_seventh', onclick: 'toggleBoxes(this)'
-          %label Dominant 7th
-      .extensions
-        - UST::DOMINANT_SEVENTH_EXTENSIONS.each_with_index do |extension, index|
-          .extension
-            .checkbox.checkbox-success
-              = check_box_tag "ust[dominant_seventh_extensions][]",
-                extension,
-                params["ust"].try(:[], "dominant_seventh_extensions").try {|extensions| extensions.include?(extension)},
-                id: "dominant_seventh_extensions-#{index}"
-              %label{for: "dominant_seventh_extensions-#{index}"}= fix_letter_spacing(extension)
+      %li
+        .chord-quality{onclick: 'toggleInnerCheckbox(event)'}
+          .checkbox
+            = check_box_tag :major_enabled, "1", params[:ust].try(:[], :major_seventh_extensions).try {|extensions| extensions.any?}, id: 'major_seventh', onclick: 'toggleBoxes(this)'
+            %label Major 7th
+        .extensions
+          - UST::MAJOR_SEVENTH_EXTENSIONS.each_with_index do |extension, index|
+            .extension
+              .checkbox.checkbox-success
+                = check_box_tag "ust[major_seventh_extensions][]",
+                  extension,
+                  params["ust"].try(:[], "major_seventh_extensions").try {|extensions| extensions.include?(extension)},
+                  id: "major_seventh_extensions-#{index}"
+                %label{for: "major_seventh_extensions-#{index}"}= fix_letter_spacing(extension)
+      %li
+        .chord-quality{onclick: 'toggleInnerCheckbox(event)'}
+          .checkbox
+            = check_box_tag :minor_enabled, "1", params[:ust].try(:[], :minor_seventh_extensions).try {|extensions| extensions.any?}, id: 'minor_seventh_ext', onclick: 'toggleBoxes(this)'
+            %label Minor 7th
+        .extensions
+          - UST::MINOR_SEVENTH_EXTENSIONS.each_with_index do |extension, index|
+            .extension
+              .checkbox.checkbox-success
+                = check_box_tag "ust[minor_seventh_extensions][]",
+                  extension,
+                  params["ust"].try(:[], "minor_seventh_extensions").try {|extensions| extensions.include?(extension)},
+                  id: "minor_seventh_extensions-#{index}"
+                %label{for: "minor_seventh_extensions-#{index}"}= fix_letter_spacing(extension)
+      %li
+        .chord-quality{onclick: 'toggleInnerCheckbox(event)'}
+          .checkbox
+            = check_box_tag :minor_seventh_flat_five_enabled, "1", params[:ust].try(:[], :minor_seventh_flat_five_extensions).try {|extensions| extensions.any?}, id: 'minor_seventh_flat_five', onclick: 'toggleBoxes(this)'
+            %label Minor 7th ♭5
+        .extensions
+          - UST::MINOR_SEVENTH_FLAT_FIVE_EXTENSIONS.each_with_index do |extension, index|
+            .extension
+              .checkbox.checkbox-success
+                = check_box_tag "ust[minor_seventh_flat_five_extensions][]",
+                  extension,
+                  params["ust"].try(:[], "minor_seventh_flat_five_extensions").try {|extensions| extensions.include?(extension)},
+                  id: "minor_seventh_flat_five_extensions-#{index}"
+                %label{for: "minor_seventh_flat_five_extensions-#{index}"}= fix_letter_spacing(extension)
+      %li
+        .chord-quality{onclick: 'toggleInnerCheckbox(event)'}
+          .checkbox
+            = check_box_tag :diminished_enabled, "1", params[:ust].try(:[], :diminished_seventh_extensions).try {|extensions| extensions.any?}, id: 'diminished_seventh', onclick: 'toggleBoxes(this)'
+            %label Diminished 7th
+        .extensions
+          - UST::DIMINISHED_SEVENTH_EXTENSIONS.each_with_index do |extension, index|
+            .extension
+              .checkbox.checkbox-success
+                = check_box_tag "ust[diminished_seventh_extensions][]",
+                  extension,
+                  params["ust"].try(:[], "diminished_seventh_extensions").try {|extensions| extensions.include?(extension)},
+                  id: "diminished_seventh_extensions-#{index}"
+                %label{for: "diminished_seventh_extensions-#{index}"}= fix_letter_spacing(extension)
 
-    %li
-      .chord-quality{onclick: 'toggleInnerCheckbox(event)'}
-        .checkbox
-          = check_box_tag :major_enabled, "1", params[:ust].try(:[], :major_seventh_extensions).try {|extensions| extensions.any?}, id: 'major_seventh', onclick: 'toggleBoxes(this)'
-          %label Major 7th
-      .extensions
-        - UST::MAJOR_SEVENTH_EXTENSIONS.each_with_index do |extension, index|
-          .extension
-            .checkbox.checkbox-success
-              = check_box_tag "ust[major_seventh_extensions][]",
-                extension,
-                params["ust"].try(:[], "major_seventh_extensions").try {|extensions| extensions.include?(extension)},
-                id: "major_seventh_extensions-#{index}"
-              %label{for: "major_seventh_extensions-#{index}"}= fix_letter_spacing(extension)
-    %li
-      .chord-quality{onclick: 'toggleInnerCheckbox(event)'}
-        .checkbox
-          = check_box_tag :minor_enabled, "1", params[:ust].try(:[], :minor_seventh_extensions).try {|extensions| extensions.any?}, id: 'minor_seventh_ext', onclick: 'toggleBoxes(this)'
-          %label Minor 7th
-      .extensions
-        - UST::MINOR_SEVENTH_EXTENSIONS.each_with_index do |extension, index|
-          .extension
-            .checkbox.checkbox-success
-              = check_box_tag "ust[minor_seventh_extensions][]",
-                extension,
-                params["ust"].try(:[], "minor_seventh_extensions").try {|extensions| extensions.include?(extension)},
-                id: "minor_seventh_extensions-#{index}"
-              %label{for: "minor_seventh_extensions-#{index}"}= fix_letter_spacing(extension)
-    %li
-      .chord-quality{onclick: 'toggleInnerCheckbox(event)'}
-        .checkbox
-          = check_box_tag :minor_seventh_flat_five_enabled, "1", params[:ust].try(:[], :minor_seventh_flat_five_extensions).try {|extensions| extensions.any?}, id: 'minor_seventh_flat_five', onclick: 'toggleBoxes(this)'
-          %label Minor 7th ♭5
-      .extensions
-        - UST::MINOR_SEVENTH_FLAT_FIVE_EXTENSIONS.each_with_index do |extension, index|
-          .extension
-            .checkbox.checkbox-success
-              = check_box_tag "ust[minor_seventh_flat_five_extensions][]",
-                extension,
-                params["ust"].try(:[], "minor_seventh_flat_five_extensions").try {|extensions| extensions.include?(extension)},
-                id: "minor_seventh_flat_five_extensions-#{index}"
-              %label{for: "minor_seventh_flat_five_extensions-#{index}"}= fix_letter_spacing(extension)
-    %li
-      .chord-quality{onclick: 'toggleInnerCheckbox(event)'}
-        .checkbox
-          = check_box_tag :diminished_enabled, "1", params[:ust].try(:[], :diminished_seventh_extensions).try {|extensions| extensions.any?}, id: 'diminished_seventh', onclick: 'toggleBoxes(this)'
-          %label Diminished 7th
-      .extensions
-        - UST::DIMINISHED_SEVENTH_EXTENSIONS.each_with_index do |extension, index|
-          .extension
-            .checkbox.checkbox-success
-              = check_box_tag "ust[diminished_seventh_extensions][]",
-                extension,
-                params["ust"].try(:[], "diminished_seventh_extensions").try {|extensions| extensions.include?(extension)},
-                id: "diminished_seventh_extensions-#{index}"
-              %label{for: "diminished_seventh_extensions-#{index}"}= fix_letter_spacing(extension)
-
-  .actions
-    = f.submit 'Generate', class: 'btn btn-lg btn-default button btn-primary'
-    = f.button :Clear, class: 'button btn btn-lg btn-default', onclick: "clearForm(event)"
-    %span.result-count
+    .actions
+      = f.submit 'Generate', class: 'btn btn-lg btn-default button'
+      = f.button :Clear, class: 'button btn btn-lg btn-default', onclick: "clearForm(event)"
+      %span.result-count
 
 #progression
   = render 'progression', progression: @progression
