@@ -20,6 +20,8 @@
     .btn-group
       = button_tag '', onclick: 'generate(); return false;', class: 'btn btn-default' do
         %span.glyphicon.glyphicon-refresh
+      = button_tag '', 'data-toggle' => "modal", 'data-target' => ".info-modal", 'class' => 'btn btn-default' do
+        %span.glyphicon.glyphicon-info-sign
       = button_tag 'Fullscreen', onclick: 'toggleFullScreen(); return false;', class: 'btn btn-default' do
         %span.glyphicon.glyphicon-fullscreen
 
