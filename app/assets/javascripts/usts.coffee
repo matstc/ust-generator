@@ -1,8 +1,19 @@
+$(document).ready ->
+  MIDI.loadPlugin({soundfontUrl: "/assets/", instrument: "acoustic_grand_piano"}) # Preload plugin
+  $('.sidebar').on 'hide.bs.collapse', scrollToTop
+  $('.sidebar').on 'show.bs.collapse', scrollToTop
+
 window.clearForm = (e) =>
   e.preventDefault()
   $("input[type='checkbox']").each(_, checkbox) -> checkbox.checked = false
 
-window.generate = -> $('form').submit()
+window.generate = ->
+  $('.sidebar').collapse('hide')
+  scrollToTop()
+  $('form').submit()
+
+window.scrollToTop = ->
+  $('body').scrollTop(0)
 
 $(window).scroll ->
   if $(window).scrollTop() > 0
@@ -83,7 +94,11 @@ class Player
     td = $($("table.progression td")[index])
     height = $(window).height()
     offset = td.offset().top
-    if offset + 150 > height + $(window).scrollTop()
+    lastChild = $("table.progression td").last()
+    bottomOfLastChild = lastChild.offset().top + lastChild.height()
+    viewed = height + $(window).scrollTop()
+
+    if viewed < bottomOfLastChild && offset + 150 > viewed
       destination = offset - 100
       $('html, body').animate({ scrollTop: destination}, 2000)
 
