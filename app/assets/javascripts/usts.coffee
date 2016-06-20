@@ -95,7 +95,7 @@ class Player
     height = $(window).height()
     offset = td.offset().top
     lastChild = $("table.progression td").last()
-    bottomOfLastChild = lastChild.offset().top + lastChild.height()
+    bottomOfLastChild = lastChild.offset().top + lastChild.height() + 20
     viewed = height + $(window).scrollTop()
 
     if viewed < bottomOfLastChild && offset + 150 > viewed
