@@ -5,7 +5,9 @@ $(document).ready ->
 
 window.clearForm = (e) =>
   e.preventDefault()
-  $("input[type='checkbox']").each(_, checkbox) -> checkbox.checked = false
+  $("input[type='checkbox']").each (_, checkbox) ->
+    checkbox.checked = false
+    true
 
 window.generate = ->
   $('.sidebar').collapse('hide')
