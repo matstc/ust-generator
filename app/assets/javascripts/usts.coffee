@@ -3,6 +3,22 @@ $(document).ready ->
   $('.sidebar').on 'hide.bs.collapse', scrollToTop
   $('.sidebar').on 'show.bs.collapse', scrollToTop
 
+  window.onkeydown = (e) ->
+    if (e.keyCode == 32 && e.target == document.body)
+      e.preventDefault()
+
+  $('body').keyup (e) ->
+    if e.which == 32
+      PLAYER.toggleAudio()
+    else if e.which == 37
+      PLAYER.previous()
+    else if e.which == 38
+      PLAYER.rewind4()
+    else if e.which == 39
+      PLAYER.next()
+    else if e.which == 40
+      PLAYER.forward4()
+
 window.clearForm = (e) =>
   e.preventDefault()
   $("input[type='checkbox']").each (_, checkbox) ->
@@ -94,6 +110,7 @@ class Player
 
   scrollTo: (index) ->
     td = $($("table.progression td")[index])
+    return unless td.length > 0
     height = $(window).height()
     offset = td.offset().top
     lastChild = $("table.progression td").last()
@@ -103,6 +120,18 @@ class Player
     if viewed < bottomOfLastChild && offset + 150 > viewed
       destination = offset - 100
       $('html, body').animate({ scrollTop: destination}, 2000)
+
+  previous: ->
+    @goTo([@index-1, 0].sort()[1])
+
+  rewind4: ->
+    @goTo([@index-4, 0].sort()[1])
+
+  next: ->
+    @goTo([@index+1, @progression.length - 1].sort()[0])
+
+  forward4: ->
+    @goTo([@index+4, @progression.length - 1].sort()[0])
 
   goTo: (index) ->
     @stop()
