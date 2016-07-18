@@ -5,9 +5,9 @@ class UST
     :minor_seventh_flat_five_extensions,
     :diminished_seventh_extensions
  
-  DOMINANT_SEVENTH_EXTENSIONS = ["♭9♭13", "♯11", "♯9", "♭5♭9", "♯9♭13", "♭9", "sus4"]
+  DOMINANT_SEVENTH_EXTENSIONS = ["♭9♭13", "♯11", "♯9", "♭5♭9", "♯9♭13", "♭9", "♭9♯11", "♯9♯11", "sus4"]
   MAJOR_SEVENTH_EXTENSIONS = ["♯11", "9"]
-  MINOR_SEVENTH_EXTENSIONS = ["13", "♭13", "11"]
+  MINOR_SEVENTH_EXTENSIONS = ["9", "13", "♭13", "11"]
   MINOR_SEVENTH_FLAT_FIVE_EXTENSIONS = ["♭13", "11"]
   DIMINISHED_SEVENTH_EXTENSIONS = ["♯11", "13", "♯9♭13", "♯9♯11"]
 
