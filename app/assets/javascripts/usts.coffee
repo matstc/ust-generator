@@ -67,7 +67,7 @@ class Player
     @progression = []
     @index = 0
     @intervalId = null
-    @bpm = 80
+    @bpm = 120
 
   calculateDelay: ->
     60/(@bpm/4)*1000
