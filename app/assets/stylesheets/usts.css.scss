@@ -2,10 +2,10 @@
 body {margin:0; padding:0; padding-top:57px;}
 h1 {font-size:180%; margin: 10px 0 35px 0; font-weight:500;}
 ul, li {list-style-type:none; margin:0; padding:0;}
-.btn.btn-default:active, .btn.btn-default:focus {background-color:white !important;}
-.btn.btn-default:active:hover, .btn.btn-default:focus:hover {background-color:#e6e6e6 !important;}
-.btn.btn-success:active, .btn.btn-success:focus {background-color:#5cb85c !important;}
-.btn.btn-success:active:hover, .btn.btn-success:focus:hover {background-color:#449d44 !important;}
+.btn.btn-default:active, .btn.btn-default:focus, .btn.btn-default:focus:hover {border-color:#ccc; background-color:white !important;}
+.btn.btn-default:active:hover {background-color:#e6e6e6 !important;}
+.btn.btn-success:active, .btn.btn-success:focus, .btn.btn-success:focus:hover {background-color:#5cb85c !important;}
+.btn.btn-success:active:hover {background-color:#449d44 !important;}
 
 .ust-form {background-color:#eee; padding: 15px;}
 .ust-form label {cursor:pointer; padding-left:5px; margin-bottom:0; font-weight:500;} 
